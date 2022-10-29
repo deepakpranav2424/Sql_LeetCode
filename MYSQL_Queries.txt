@@ -1,0 +1,11 @@
+Question: 178 | Rank Scores |
+==========================
+
+Ans option 1: 
+-------------
+select score, dense_rank() over(order by score desc) as 'rank' from scores;
+
+Ans option 2: 
+-------------
+with cte as (Select score,dense_rank() over(order by score desc) as 'Rank' from scores)
+select * from cte ;
