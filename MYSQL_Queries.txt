@@ -19,3 +19,9 @@ Ans:
 with max_salary(Department,Employee,Salary,Rank_order) as (Select d.name,e.name,e.salary,dense_rank() over(partition by d.name order by salary desc) from employee e join department d on e.departmentid = d.id)
 
 select Department,Employee,Salary from max_salary where Rank_order<=3 ;
+
+===================================
+Question: 511. Game Play Analysis I
+===================================
+
+select player_id, min(event_date) as 'first_login' from Activity group by player_id;
