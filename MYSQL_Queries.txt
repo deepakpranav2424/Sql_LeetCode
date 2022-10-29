@@ -1,4 +1,4 @@
-Question: 178 | Rank Scores |
+Question: 178. Rank Scores 
 ==========================
 
 Ans option 1: 
@@ -9,3 +9,13 @@ Ans option 2:
 -------------
 with cte as (Select score,dense_rank() over(order by score desc) as 'Rank' from scores)
 select * from cte ;
+
+=============================================
+Question: 185. Department Top Three Salaries
+=============================================
+
+Ans: 
+----
+with max_salary(Department,Employee,Salary,Rank_order) as (Select d.name,e.name,e.salary,dense_rank() over(partition by d.name order by salary desc) from employee e join department d on e.departmentid = d.id)
+
+select Department,Employee,Salary from max_salary where Rank_order<=3 ;
