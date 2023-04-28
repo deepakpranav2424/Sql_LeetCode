@@ -14,7 +14,7 @@ object WordCount extends App {
   
   val wordsLower = words.map(x => x.toLowerCase())
 
-  val wordMap = wordsLower.map(x => (x, 1)) // tuple of value k,v
+  val wordMap = wordsLower.map(x => (x, 1))
 
   val wordCount = wordMap.reduceByKey((x, y) => x + y)
   
